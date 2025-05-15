@@ -1,0 +1,72 @@
+Install the docker on Ubuntu 22.04 in WSL : 
+Step 1 : Installing Docker 
+a. sudo apt update 
+b. sudo apt install apt-transport-https ca-certificates curl software-properties-common 
+c. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add – 
+d. sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu 
+focal stable" 
+e. sudo apt-cache policy docker-ce 
+f. sudo apt install docker-ce 
+g. sudo systemctl status docker 
+Step 2 : Working with Docker Images
+1. docker run hello-world 
+2. docker search ubuntu 
+3. docker pull ubuntu 
+4. docker images 
+Step 3 : Running a Docker Container 
+1. docker run -it ubuntu 
+5 
+Step 4 : Managing Docker Containers 
+1. docker ps 
+2. docker ps -a 
+3. docker ps -l 
+4. docker start ( ID number ) 
+5. docker stop ( NAMES ) 
+6. docker rm youthful_curie 
+Step 5 : Committing Changes in a Container to a 
+Docker Images 
+1. docker commit -m "What you did to the image" -a "Author Name" container_id 
+repository/new_image_name 
+2. docker commit -m "added Node.js" -a "sammy" d9b100f2f636 sammy/ubuntu-nodejs 
+3. docker images 
+Step 6 : pushing Docker Images to a Docker Repository 
+a. docker login -u docker-registry-username 
+b. docker tag sammy/ubuntu-nodejs docker-registry-username/ubuntu-nodejs 
+c. docker push docker-registry-username/docker-image-name 
+d. docker push sammy/ubuntu-nodejs 
+Install Prerequisites for Hyperledger fabric : 
+Installing cURL : Sudo apt-get install curl 
+ Sudo apt-cache search libcurl | grep python 
+ Sudo apt-get install python3-pycurl 
+ Sudo apt-cache search libcurl
+REFERENCE : https://www.cyberciti.biz/faq/how-to-install-curl-command-on-a-ubuntulinux/
+Installing Golang : sudo apt-get install golang-go
+ export GOPATH=$HOME/go 
+ export PATH=$PATH:$GOPATH/bin 
+ REFERENCE : https://www.cyberciti.biz/faq/how-to-install-gol-ang-on-ubuntu-linux/
+Installing Node.js and NVM : 
+ sudo apt update 
+6 
+ sudo apt install nodejs 
+ node -v 
+ sudo apt install npm 
+Installing jq : sudo apt-get install jq 
+Installing JAVA : sudo apt-get install default-jre 
+ sudo apt-get install default-jdk 
+INSTALLATION OF SAMPLES, BINARIES AND DOCKER IMAGES : 
+Determine a location on your machine where you want to place the fabric-samples repository and 
+enter that directory in a terminal window. The command that follows will perform the following 
+steps: 
+1. If needed, clone the hyperledger/fabric-samples repository 
+2. Checkout the appropriate version tag 
+3. Install the Hyperledger Fabric platform-specific binaries and config files for the version 
+specified into the /bin and /config directories of fabric-samples 
+4. Download the Hyperledger Fabric docker images for the version specified 
+STEPS INVOLVED : 
+mkdir -p $HOME/go/src/github.com/<your_github_userid> cd
+$HOME/go/src/github.com/<your_github_userid> 
+curl -sSL http://bit.ly/2ysbOFE | bash -s -- -h 
+curl -sSL http://bit.ly/2ysbOFE | bash -s -- 2.3.1 1.4.9 
+export GOPATH:$Home/<user-defined-workspace>/go 
+export PATH=<path to download location>/bin:$PATH 
+curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh| bash -s 
